@@ -1,22 +1,23 @@
 package com.github.rsoi.service;
 
-import com.github.rsoi.domain.TelephoneCatalog;
+import com.github.rsoi.domain.TelephoneData;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class TelephoneComparison {
 
     public static void main(String [] args){
 
-        TelephoneCatalog xiaomi = new TelephoneCatalog("Xiaomi Redmi Note 10 Pro",730,6.7, 8,true );
-        TelephoneCatalog samsung = new TelephoneCatalog("Samsung galaxy S20",1300,6.2, 8,true );
-        TelephoneCatalog iPhone = new TelephoneCatalog("Apple Iphone 13 Pro",2250,6.1, 4,false );
-        TelephoneCatalog huawei = new TelephoneCatalog("Huawei P40 lite",670, 6.4, 6, false);
-        TelephoneCatalog honor = new TelephoneCatalog("HONOR 70",1299, 6.7, 8, false);
+        TelephoneData xiaomi = new TelephoneData("Xiaomi Redmi Note 10 Pro",730,6.7, 8,true );
+        TelephoneData samsung = new TelephoneData("Samsung galaxy S20",1300,6.2, 8,true );
+        TelephoneData iPhone = new TelephoneData("Apple Iphone 13 Pro",2250,6.1, 4,false );
+        TelephoneData huawei = new TelephoneData("Huawei P40 lite",670, 6.4, 6, false);
+        TelephoneData honor = new TelephoneData("HONOR 70",1299, 6.7, 8, false);
 
 
-        ArrayList<TelephoneCatalog> telephonesArrayList = new ArrayList<>();
+        List<TelephoneData> telephonesArrayList = new ArrayList<>();
 
         telephonesArrayList.add(xiaomi);
         telephonesArrayList.add(samsung);
@@ -42,7 +43,7 @@ public class TelephoneComparison {
 
             switch (menuNumber) {
                 case 1:
-                   for (TelephoneCatalog phone: telephonesArrayList){
+                   for (TelephoneData phone: telephonesArrayList){
                        phone.getData();
                    }
                    break;
@@ -55,32 +56,32 @@ public class TelephoneComparison {
                     int userRAM = userPhoneData.getUserRAM();
                     Boolean userSDAvailable = userPhoneData.getUserSDAvailable();
 
-                    for (TelephoneCatalog telephoneCatalog : telephonesArrayList) {
-                        if (telephoneCatalog.getPriceOfTheTelephone() > userMinPrice & telephoneCatalog.getPriceOfTheTelephone() < userMaxPrice) {
-                            increaseCounter(telephoneCatalog);
+                    for (TelephoneData telephoneData : telephonesArrayList) {
+                        if (telephoneData.getPriceOfTheTelephone() > userMinPrice & telephoneData.getPriceOfTheTelephone() < userMaxPrice) {
+                            increaseCounter(telephoneData);
                         }
-                        if (telephoneCatalog.getSizeOfTheScreen().equals(userSizeOfScreen)) {
-                            increaseCounter(telephoneCatalog);
+                        if (telephoneData.getSizeOfTheScreen().equals(userSizeOfScreen)) {
+                            increaseCounter(telephoneData);
                         }
-                        if (telephoneCatalog.getAmountOfRAM() == userRAM) {
-                            increaseCounter(telephoneCatalog);
+                        if (telephoneData.getAmountOfRAM() == userRAM) {
+                            increaseCounter(telephoneData);
                         }
-                        if (telephoneCatalog.getSdCardIsAvailable() == userSDAvailable) {
-                            increaseCounter(telephoneCatalog);
+                        if (telephoneData.getSdCardIsAvailable() == userSDAvailable) {
+                            increaseCounter(telephoneData);
                         }
                     }
 
                     int maximum = telephonesArrayList.get(0).getMatchCounter();
 
-                    for (TelephoneCatalog telephoneCatalog : telephonesArrayList) {
-                        if (maximum < telephoneCatalog.getMatchCounter())
-                            maximum = telephoneCatalog.getMatchCounter();
+                    for (TelephoneData telephoneData : telephonesArrayList) {
+                        if (maximum < telephoneData.getMatchCounter())
+                            maximum = telephoneData.getMatchCounter();
                     }
 
-                    for (TelephoneCatalog telephoneCatalog : telephonesArrayList) {
-                        if (telephoneCatalog.getMatchCounter() == maximum) {
+                    for (TelephoneData telephoneData : telephonesArrayList) {
+                        if (telephoneData.getMatchCounter() == maximum) {
                             System.out.println("\nTake a look at the following option\n");
-                            telephoneCatalog.getData();
+                            telephoneData.getData();
                         }
                     }
                 case 3:
@@ -88,7 +89,7 @@ public class TelephoneComparison {
             }
         }
     }
-    private static void increaseCounter(TelephoneCatalog telephoneCatalog) {
-        telephoneCatalog.setMatchCounter(telephoneCatalog.getMatchCounter() + 1);
+    private static void increaseCounter(TelephoneData telephoneData) {
+        telephoneData.setMatchCounter(telephoneData.getMatchCounter() + 1);
     }
 }
