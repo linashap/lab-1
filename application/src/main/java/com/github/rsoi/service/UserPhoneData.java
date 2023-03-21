@@ -12,55 +12,55 @@ public class UserPhoneData {
     public void searchForPhone(){
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter minimum price");
+        System.out.println("Минимальная цена");
         do {
             try {
                 userMinimumPrice = Integer.parseInt(scanner.next());
             } catch (NumberFormatException e){
-                System.out.println("Error! Integers only");
+                System.out.println("Ошибка!Только целочисленные!");
             }
         } while (userMinimumPrice < 0);
 
-        System.out.println("Enter maximum price");
+        System.out.println("Максимальная цена");
         do {
             try {
                 userMaximumPrice = Integer.parseInt(scanner.next());
             } catch (NumberFormatException e){
-                System.out.println("Error! Integers only");
+                System.out.println("Ошибка!Только целочисленные!");
             }
         } while (userMaximumPrice == 0);
 
-        System.out.println("Enter preferred size of screen");
+        System.out.println("Размер дисплея");
         do {
             try {
                 userSizeOfScreen = Double.parseDouble(scanner.next());
             } catch (NumberFormatException e){
-                System.out.println("Error! Screen size must be double!");
+                System.out.println("Ошибка!Только с плавающей точки!");
             }
         } while (userSizeOfScreen == 0);
 
 
-        System.out.println("Enter preferred amount of RAM");
+        System.out.println("Количесво оперативной памяти");
         do {
             try {
                 userRAM = Integer.parseInt(scanner.next());
             } catch (NumberFormatException e){
-                System.out.println("Error! Integers only");
+                System.out.println("Ошибка!Только целочисленные!");
             }
         } while (userRAM == 0);
 
-        System.out.println("Is SD card needed?");
+        System.out.println("Наличие CD слота");
         do {
             try {
                 String booleanHelper;
                 booleanHelper = scanner.next();
-                if (booleanHelper.equals("Yes") || booleanHelper.equals("yes")){
+                if (booleanHelper.equals("Есть") || booleanHelper.equals("есть")){
                     userSDAvailable = true;
-                } else if (booleanHelper.equals("No") || booleanHelper.equals("no")){
+                } else if (booleanHelper.equals("Нет") || booleanHelper.equals("нет")){
                     userSDAvailable = false;
                 }
             } catch (NumberFormatException e){
-                System.out.println("Error! Write only Yes or No");
+                System.out.println("Ошибка!Напишите Есть или Нет");
             }
         } while (userSDAvailable == null);
     }

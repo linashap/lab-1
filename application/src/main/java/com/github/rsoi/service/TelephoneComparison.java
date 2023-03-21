@@ -10,11 +10,11 @@ public class TelephoneComparison {
 
     public static void main(String [] args){
 
-        TelephoneData xiaomi = new TelephoneData("Xiaomi Redmi Note 10 Pro",730,6.7, 8,true );
-        TelephoneData samsung = new TelephoneData("Samsung galaxy S20",1300,6.2, 8,true );
-        TelephoneData iPhone = new TelephoneData("Apple Iphone 13 Pro",2250,6.1, 4,false );
-        TelephoneData huawei = new TelephoneData("Huawei P40 lite",670, 6.4, 6, false);
-        TelephoneData honor = new TelephoneData("HONOR 70",1299, 6.7, 8, false);
+        TelephoneData xiaomi = new TelephoneData("Сяоми Рэдми Ноут 11 Про версия",730,6.7, 8,true );
+        TelephoneData samsung = new TelephoneData("Самсунг гэлакси A70",1300,6.2, 8,true );
+        TelephoneData iPhone = new TelephoneData("Айфон 13 Про версия",2250,6.1, 4,false );
+        TelephoneData huawei = new TelephoneData("Леново Vibe",670, 6.4, 6, false);
+        TelephoneData honor = new TelephoneData("Хонор 70",1299, 6.7, 8, false);
 
 
         List<TelephoneData> telephonesArrayList = new ArrayList<>();
@@ -31,14 +31,14 @@ public class TelephoneComparison {
 
         UserPhoneData userPhoneData = new UserPhoneData();
 
-        System.out.println("Hi! Let's choose a phone");
+        System.out.println("Выбор телефона:");
         while (menuNumber!=3){
-            System.out.println("Enter 1 to view all options \nEnter 2 to enter your parameters \nEnter 3 to exit");
+            System.out.println("Нажмите 1, чтобы просмотреть все телефоны\nНажмите 2, чтобы подобрать телефон \n3 - Выход");
             stringToCheck = scanner.next();
             try {
                 menuNumber = Integer.parseInt(stringToCheck);
             } catch (NumberFormatException e) {
-                System.out.println("Error! Numbers only");
+                System.out.println("Ошибка!Только целочисленные!");
             }
 
             switch (menuNumber) {
@@ -80,7 +80,7 @@ public class TelephoneComparison {
 
                     for (TelephoneData telephoneData : telephonesArrayList) {
                         if (telephoneData.getMatchCounter() == maximum) {
-                            System.out.println("\nTake a look at the following option\n");
+                            System.out.println("\nПодходяший вариант\n");
                             telephoneData.getData();
                         }
                     }

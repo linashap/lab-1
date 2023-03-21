@@ -19,16 +19,16 @@ public class TelephoneData {
     }
 
     public void getData(){
-        System.out.println("Name of the telephone is " + nameOfTheTelephone);
-        System.out.println("Price of the telephone is " + priceOfTheTelephone);
-        System.out.println("Size of the screen is " + sizeOfTheScreen);
-        System.out.println("Amount of RAM is " + amountOfRAM);
+        System.out.println("Наименование " + nameOfTheTelephone);
+        System.out.println("Цена " + priceOfTheTelephone);
+        System.out.println("Размер дисплея " + sizeOfTheScreen);
+        System.out.println("Количество оперативной памяти " + amountOfRAM);
 
         if (sdCardIsAvailable){
-            System.out.println("SD card is available");
+            System.out.println("Есть SD слот ");
         }
         else {
-            System.out.println("SD card is not available");
+            System.out.println("SD слот отсутствует");
         }
         System.out.println("-----------------------------");
     }
